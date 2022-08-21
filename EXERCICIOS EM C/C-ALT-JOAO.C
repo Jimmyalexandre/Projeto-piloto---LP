@@ -1,10 +1,10 @@
 #include<stdlib.h>
 #include<stdio.h>
 int main(){
-    float Joao, Chico;
+    double Joao, Chico;
     int anos;
 
-    Joao = 0.95; // altura Joao
+    Joao = 0.90; // altura Joao
     Chico = 0.6; // altura Chico
 
     anos = 0;
@@ -12,12 +12,12 @@ int main(){
     {
         Joao+=0.01;
         Chico+=0.02;
-        printf("\nAltura Atual de Joao: %.2f", Joao);
-        printf("\nAltura Atual de Chico: %.2f", Chico);
         anos++;
+        printf("\n ANO :%d\n Altura Atual de Joao: %.2f de de Chico %.2f",anos, Joao, Chico);
+        
     }
 
-    printf("Chico levara %d anos para superar a altura de Joao.", anos);
+    printf("\n\nChico levara %d anos para superar a altura de Joao.", anos);
     
 
 }
