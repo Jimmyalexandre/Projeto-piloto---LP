@@ -29,6 +29,12 @@
     "**/.vscode/**"
   ],
   "files.associations": {
-    "ATV10.C": "cpp"
-  }
+    "ATV10.C": "cpp",
+    "ATV10-1.C": "cpp",
+    "ATV11.C": "cpp",
+    "ATV12.C": "cpp",
+    "ATV12_A.C": "cpp",
+    "ATV13.C": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
