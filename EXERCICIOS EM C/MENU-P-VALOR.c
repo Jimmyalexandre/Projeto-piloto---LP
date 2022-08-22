@@ -88,7 +88,7 @@ void CIRCULOAREA(){
         scanf("%lf", &raio);
     }
     
-    //usando contante para PI (M_PI) da lib "math.h"
+    //usando constante para PI (M_PI) da lib "math.h"
     area = M_PI *(pow(raio,2.0));
 
     printf("Valor da area do circulo eh:%4lf", area);
