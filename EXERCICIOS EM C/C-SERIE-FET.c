@@ -11,6 +11,8 @@ int main(){
     }
     printf("Digite os valores dos dois termos: ");
     scanf("%d%d", &tPreAnt, &tAnt);
+    //printf("[1] %d \n[2] %d\n", tPreAnt, tAnt);
+    printf("(1) %d, (2) %d,",tPreAnt, tAnt);
     i = 3;
     while (i <= qtT)
     {
@@ -25,8 +27,14 @@ int main(){
         //printf("\n\n 1-[%d] %d %d %d ", i, tPreAnt, tAnt, tAtual);
         tPreAnt = tAnt;
         tAnt = tAtual;
-        printf("\n[%d] %d %d ", i, tPreAnt, tAnt);
         i++;
+        if(i <= qtT){
+            printf(" (%d) %d,", i-1, tAnt);
+        }else{
+            printf(" (%d) %d...\n",i-1, tAnt);
+        }
+        
+        
     }
     
 

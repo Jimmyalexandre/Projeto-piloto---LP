@@ -30,7 +30,14 @@
   ],
   "files.associations": {
     "math.h": "c",
-    "C-AUTONIMIA_TQ.C": "cpp",
-    "C-ALT-JOAO.C": "cpp"
-  }
+    "C-AUTONIMIA_TQ.C": "c",
+    "C-ALT-JOAO.C": "c",
+    "ATV3-1.C": "c",
+    "ATV3-2.C": "c",
+    "ATV4-1.C": "c",
+    "ATV4-2.C": "c",
+    "ATV4-3.C": "c",
+    "ATV7-1.C": "c"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
