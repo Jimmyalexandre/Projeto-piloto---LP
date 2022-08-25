@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #define TS 50
-#define N 2
+#define N 5
 
 typedef struct
 {
@@ -33,6 +33,9 @@ int validaDuracao(int min, int seg); //valida Tempo da Musica
 int listaPlayList(); //Lista Todas as Musicas
 void alterarFaixa(int faixa);//altera musica
 int alterar();//altera dados da faixa
+int excluir(); // Exclui Musica
+void excluir_faixa(int faixa);//exclui Faixa
+void reorganizarPlaylist(int faixa);//Reorganiza Playlist
 
 int main(int argc, char const *argv[]){
 
@@ -69,15 +72,17 @@ void op_menu(int opcao){
 
         if(opcao < 1 || opcao > 5){
         erro_mensagem(0);  // erro de opcao invalida.     
-    }else if(opcao < 5){
-       if(opcao == 1){
-        erro = inclusao();
-       }else if(opcao==3){
-        erro= alterar();
-
-       }else if(opcao ==4){
-         erro = listaPlayList();
-       }
+    }else if(opcao < 5)
+    {
+        if(opcao == 1){
+            erro = inclusao();
+        }else if(opcao==2){
+            erro = excluir();
+        }else if(opcao==3){
+            erro = alterar();
+        }else if(opcao ==4){
+            erro = listaPlayList();
+        }
     }
 
     if(erro <= 0){
@@ -166,7 +171,6 @@ void imp_musica(Musica m){
     printf("- Tempo: (MM:SS): %d:%d\n", m.tempo.min, m.tempo.seg);
 
 }
-
 int validaDuracao(int min, int seg){
     if(min < 0){
         return -5;
@@ -178,7 +182,6 @@ int validaDuracao(int min, int seg){
         return 1;
     }
 }
-
 int listaPlayList(){
     int i;
     if(_numMusica <=0){
@@ -193,7 +196,6 @@ int listaPlayList(){
     system("pause");    
     return 1;
 }
-
 int alterar(){
     
     int faixa =-1;
@@ -220,7 +222,6 @@ int alterar(){
     imp_musica(_Playlist[faixa]);
     system("pause");    
 }
-
 void alterarFaixa(int faixa){
     
     int erro = -1;
@@ -258,4 +259,60 @@ void alterarFaixa(int faixa){
     }
     
 
+}
+int excluir(){
+        
+    int faixa =-1;
+
+    if(_numMusica==0){
+        return -2;
+    }
+
+    while (faixa < 0 || faixa > _numMusica)
+    {
+        listaPlayList();
+        printf("Digite a faixa que deseja excluir [%d - %d]: ", 1, _numMusica);
+        scanf("%d", &faixa);
+        faixa--;
+        printf("faixa ->%d", faixa);
+        system("pause");
+        fflush(stdin);
+        
+
+        if(faixa < 0 || faixa > _numMusica){
+            erro_mensagem(-8);// Faixa inexistente.
+        }else{
+            void excluir_faixa(int faixa);// exclui a faixa selecionada.
+        }
+    }
+    
+
+    system("cls");
+    printf("Exclusao Bem Sucedida\n");
+    printf("\n%d\n", _numMusica); // teste para exclusao
+    system("pause");
+    return 1;
+}
+void excluir_faixa(int faixa){
+    if(_numMusica == 1){
+        _numMusica = 0;
+        printf("\n1 musica.");
+                printf("\nEntrou aqui");
+            system("pause");
+    }else if(_numMusica-1 == faixa){
+        _numMusica--;
+        printf("\nultima musica.");
+    }else{
+        printf("\nQualquer musica.");
+        void reorganizarPlaylist(int faixa);
+    }
+  
+}
+void reorganizarPlaylist(int faixa){
+    int i;
+
+    for(i=faixa; i <_numMusica - 1 ;i++ ){
+        _Playlist[i] = _Playlist[i+1];
+    }
+    _numMusica--;
 }
